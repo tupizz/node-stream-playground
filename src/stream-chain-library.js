@@ -16,6 +16,19 @@ const pipe = fs
 
 pipe.on('data', (data) => {
   console.log('Batch size:', data);
+
+  // Calling pause method
+  pipe.pause();
+
+  // After this any data will be displayed
+  // after 1 sec.
+  console.log('No further data will be displayed for 1 second.');
+
+  // Using setTimeout function
+  setTimeout(() => {
+    console.log('Now data starts flowing again.');
+    pipe.resume();
+  }, 1000);
 });
 
 // const pipeline = chain([
